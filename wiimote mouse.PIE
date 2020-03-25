@@ -1,0 +1,44 @@
+﻿
+            // Using Pitch and Roll to manipulate Mouse Pointer
+// By Inderpreet Singh
+
+// Acceleration Variables
+// Not Useful here but good for the demo
+var.xRot = Wiimote.gx
+var.yRot = wiimote.gy
+var.zRot = wiimote.gz
+// Yaw can only be sensed using the Wiimote Plus addon
+var.yaw = wiimote.Yaw
+
+var.roll1 = var.roll2
+var.roll2 = var.roll3
+var.roll3 = var.roll4
+var.roll4 = var.roll5
+var.roll5 = var.roll6
+var.roll6 = var.roll7
+var.roll7 = var.roll8
+var.roll8 = var.roll9
+var.roll9 = var.roll10
+var.roll10 = wiimote.Roll
+// Roll varies from +90 To -90
+var.pitch1 = var.pitch2
+var.pitch2 = var.pitch3
+var.pitch3 = var.pitch4
+var.pitch4 = var.pitch5
+var.pitch5 = var.pitch6
+var.pitch6 = var.pitch7
+var.pitch7 = var.pitch8
+var.pitch8 = var.pitch9
+var.pitch9 = var.pitch10
+var.pitch10= wiimote.Pitch
+// Pitch Value varies from +90 To -90
+
+var.rollavg = (var.roll1 + var.roll2 + var.roll3 + var.roll4 + var.roll5 +var.roll6 +var.roll7 +var.roll8  +var.roll9 +var.roll10)/10
+var.pitchavg = (var.pitch1 +var.pitch2 +var.pitch3 +var.pitch4+ var.pitch5 + var.pitch6 + var.pitch7 + var.pitch8 + var.pitch9 + var.pitch10)/10
+// Mouse cursor on the screen can vary from 0,0 – Upper Left Corner to 1,1 bottom right corner.
+// The Two values need to be mapped to each other.
+Mouse.x = MapRange(var.rollavg, -40 degrees,40 degrees, 0,1)
+Mouse.y = MapRange(var.pitchavg, -40 degrees,40 degrees, 0,1)
+wait 100ms
+
+Mouse.LeftButton =wiimote.B
